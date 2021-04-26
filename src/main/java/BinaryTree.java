@@ -1,75 +1,41 @@
 class BinaryTree {
     Node root;
 
-    BinaryTree() {
-        root = null;
+    public void insert(int key)
+    {
+        root = insertRec(root, key);
     }
 
 
-    public void buildTree() {
-        //create root
-        root = new Node(5);
-        /*
-              5
-            /   \
-          null  null     */
-        root.left = new Node(3);
-        root.right = new Node(7);
-        /* 3 and 7 become left and right children of 5
-               5
-            /     \
-          3        7
-        /   \     /  \
-      null null null null  */
-        root.left.left = new Node(2);
-        root.left.right = new Node(5);
-        /*
-                    5
-                /       \
-               3          7
-             /   \       /  \
-            2     5  null  null
-          /  \    /\
-        null null n n
-         */
-        root.right.left = new Node(1);
-        root.right.right = new Node(0);
-        /*
-                    5
-                /       \
-               3          7
-             /   \       /  \
-            2     5     1    0
-          /  \    /\   / \  / \
-        null null n n  n n  n  n
-         */
-        root.right.right.left = new Node(2);
-        root.right.right.right = new Node(8);
-        /*
-                    5
-                /       \
-               3          7
-             /   \       /  \
-            2     5     1    0
-          /  \    /\   / \  / \
-        null null n n  n n  2   8
-                           / \ / \
-                           n n n  n
-         */
-        root.right.right.right.right = new Node(5);
-        /*
-                    5
-                /       \
-               3          7
-             /   \       /  \
-            2     5     1     0
-          /  \    /\   / \   /  \
-        null null n n n   n  2   8
-                            / \ / \
-                           n  n n  5
-                                  /  \
-                                  n   n
-         */
+    private Node insertRec(Node root, int key)
+    {
 
+        if (root == null)
+        {
+            root = new Node(key);
+            return root;
+        }
+
+        if (key < root.getKey())
+            root.left = insertRec(root.left, key);
+        else if (key > root.getKey())
+            root.right = insertRec(root.right, key);
+
+        //return the (unchanged) node pointer
+        return root;
+    }
+
+    public void inorder()
+    {
+        inorderRec(root);
+    }
+
+    private void inorderRec(Node root)
+    {
+        if (root != null) {
+            inorderRec(root.left);
+            System.out.println(root.getKey());
+            inorderRec(root.right);
+        }
     }
 }

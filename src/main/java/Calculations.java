@@ -29,5 +29,7 @@ public class Calculations {
         return subtreeSum(node)/size(node);
     }
 
+    public void median(){
 
+    }
 }
