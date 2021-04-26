@@ -1,23 +1,31 @@
-import java.util.Objects;
 
 public class Calculations {
-    private int count = 0;
-    static Node ptr;
+    static Node ptrRoot;
 
-    public int subtreeSum(Node root)
+    public static void setPtrRoot(Node ptrRoot) {
+        Calculations.ptrRoot = ptrRoot;
+    }
+
+
+    public double subtreeSum(Node start)
     {
         int l = 0, r = 0;
-        if(root != null) {
-            l += subtreeSum(root.left);
-            r += subtreeSum(root.right);
-            count += l + r + root.getKey();
-            if (ptr != root) count = l + root.getKey() + r;
-            return count;
+        if(start != null) {
+            l += subtreeSum(start.left);
+            r += subtreeSum(start.right);
+            double sum = l + start.getKey() + r;
+            if (ptrRoot != start) sum = l + start.getKey() + r;
+            return  sum;
         }else return 0;
     }
 
-    public double averageValue(Node root){
+    private int size(Node node)
+    {
+        if (null == node ) return 0;
+        return 1 + size( node.left ) + size( node.right );
+    }
 
-        return 0;
+    public double averageValue(){
+        return subtreeSum(ptrRoot)/size(ptrRoot);
     }
 }

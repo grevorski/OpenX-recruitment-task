@@ -8,10 +8,11 @@ public class CalculationsTest {
         BinaryTree testTree = new BinaryTree();
         testTree.buildTree();
         Calculations sum = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
 
-        int result = sum.subtreeSum(testTree.root);
+        int result = (int) sum.subtreeSum(testTree.root);
 
-        Assert.assertEquals(result,38);
+        Assert.assertEquals(38,result);
     }
 
     @Test
@@ -19,10 +20,11 @@ public class CalculationsTest {
         BinaryTree testTree = new BinaryTree();
         testTree.buildTree();
         Calculations sum = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
 
-        int result = sum.subtreeSum(testTree.root.left);
+        int result = (int) sum.subtreeSum(testTree.root.left);
 
-        Assert.assertEquals(result,10);
+        Assert.assertEquals(10,result);
     }
 
     @Test
@@ -30,10 +32,11 @@ public class CalculationsTest {
         BinaryTree testTree = new BinaryTree();
         testTree.buildTree();
         Calculations sum = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
 
-        int result = sum.subtreeSum(testTree.root.left.left);
+        int result = (int) sum.subtreeSum(testTree.root.left.left);
 
-        Assert.assertEquals(result,2);
+        Assert.assertEquals(2,result);
     }
 
     @Test
@@ -41,10 +44,11 @@ public class CalculationsTest {
         BinaryTree testTree = new BinaryTree();
         testTree.buildTree();
         Calculations sum = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
 
-        int result = sum.subtreeSum(testTree.root.left.right);
+        int result = (int) sum.subtreeSum(testTree.root.left.right);
 
-        Assert.assertEquals(result,5);
+        Assert.assertEquals(5,result);
     }
 
     @Test
@@ -52,10 +56,11 @@ public class CalculationsTest {
         BinaryTree testTree = new BinaryTree();
         testTree.buildTree();
         Calculations sum = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
 
-        int result = sum.subtreeSum(testTree.root.right);
+        int result = (int) sum.subtreeSum(testTree.root.right);
 
-        Assert.assertEquals(result,23);
+        Assert.assertEquals(23,result);
     }
 
     @Test
@@ -63,10 +68,11 @@ public class CalculationsTest {
         BinaryTree testTree = new BinaryTree();
         testTree.buildTree();
         Calculations sum = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
 
-        int result = sum.subtreeSum(testTree.root.right.left);
+        int result = (int) sum.subtreeSum(testTree.root.right.left);
 
-        Assert.assertEquals(result,1);
+        Assert.assertEquals(1,result);
     }
 
 
@@ -75,10 +81,11 @@ public class CalculationsTest {
         BinaryTree testTree = new BinaryTree();
         testTree.buildTree();
         Calculations sum = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
 
-        int result = sum.subtreeSum(testTree.root.right.right);
+        int result = (int) sum.subtreeSum(testTree.root.right.right);
 
-        Assert.assertEquals(result,15);
+        Assert.assertEquals(15,result);
     }
 
     @Test
@@ -86,29 +93,44 @@ public class CalculationsTest {
         BinaryTree testTree = new BinaryTree();
         testTree.buildTree();
         Calculations sum = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
 
-        int result = sum.subtreeSum(testTree.root.right.right.right);
+        int result = (int) sum.subtreeSum(testTree.root.right.right.right);
 
-        Assert.assertEquals(result,13);
+        Assert.assertEquals(13,result);
     }
     @Test
     public void calculations_subtreeSum_rightRootChildRightChildLeaf(){
         BinaryTree testTree = new BinaryTree();
         testTree.buildTree();
         Calculations sum = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
 
-        int result = sum.subtreeSum(testTree.root.right.right.right.right);
+        int result = (int) sum.subtreeSum(testTree.root.right.right.right.right);
 
-        Assert.assertEquals(result,5);
+        Assert.assertEquals(5,result);
     }
     @Test
     public void calculations_subtreeSum_nullNode(){
         BinaryTree testTree = new BinaryTree();
         testTree.buildTree();
         Calculations sum = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
 
-        int result = sum.subtreeSum(testTree.root.right.right.right.right.right);
+        int result = (int) sum.subtreeSum(testTree.root.right.right.right.right.right);
 
-        Assert.assertEquals(result,0);
+        Assert.assertEquals(0,result);
+    }
+
+    @Test
+    public void calculations_size_binaryTreeSize(){
+        BinaryTree testTree = new BinaryTree();
+        testTree.buildTree();
+        Calculations calc = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
+
+        double result = calc.averageValue();
+
+        Assert.assertEquals(3.8,result,0.01);
     }
 }

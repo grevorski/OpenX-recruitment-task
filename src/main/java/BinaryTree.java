@@ -5,6 +5,7 @@ class BinaryTree {
         root = null;
     }
 
+
     public void buildTree() {
         //create root
         root = new Node(5);
