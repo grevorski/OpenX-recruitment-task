@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class Main {
 
     public static void main(String[] args)
@@ -11,9 +13,7 @@ class Main {
         tree.insert(60);
         tree.insert(80);
 
-      //  tree.inorder();
         Calculations calculations = new Calculations();
-//        tree.buildTree();
         Calculations.setPtrRoot(tree.root);
 
         System.out.println("Sum of the binaryTree = " +
@@ -22,8 +22,11 @@ class Main {
         System.out.println("count = " +
                 calculations.averageValue(tree.root));
 
-        System.out.println("sorted tree keys: ");
-        tree.inorder();
+
+        System.out.println("median of binaryTree: " + calculations.median(tree.root));
+        System.out.println("sorted tree keys: " + calculations.list);
+
+
 
 
     }

@@ -1,6 +1,7 @@
 class BinaryTree {
     Node root;
 
+
     public void insert(int key)
     {
         root = insertRec(root, key);
@@ -25,17 +26,4 @@ class BinaryTree {
         return root;
     }
 
-    public void inorder()
-    {
-        inorderRec(root);
-    }
-
-    private void inorderRec(Node root)
-    {
-        if (root != null) {
-            inorderRec(root.left);
-            System.out.println(root.getKey());
-            inorderRec(root.right);
-        }
-    }
 }

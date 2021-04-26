@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Calculations {
     static Node ptrRoot;
-
+    List<Integer> list = new ArrayList<>();
+    private int index = 0;
     public static void setPtrRoot(Node ptrRoot) {
         Calculations.ptrRoot = ptrRoot;
     }
@@ -29,7 +32,28 @@ public class Calculations {
         return subtreeSum(node)/size(node);
     }
 
-    public void median(){
+    private void treeToArray(Node root) {
+        if(root == null){
+            System.out.println("tree is empty");
+        }
+        else {
+            if(root.left != null)
+                treeToArray(root.left);
+            list.add(index, root.getKey());
+            index++;
+            if(root.right != null)
+                treeToArray(root.right);
+        }
+    }
 
+    public double median(Node root){
+        treeToArray(root); // always sorted cuz of BTS
+        double middle;
+        if (list.size()%2 == 0) {
+            middle = (list.get(list.size()/2) + list.get(list.size()/2 - 1))/2.0;
+        } else {
+            middle = (list.get(list.size()/2));
+        }
+        return middle;
     }
 }
