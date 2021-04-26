@@ -129,8 +129,20 @@ public class CalculationsTest {
         Calculations calc = new Calculations();
         Calculations.setPtrRoot(testTree.root);
 
-        double result = calc.averageValue();
+        double result = calc.averageValue(testTree.root);
 
         Assert.assertEquals(3.8,result,0.01);
+    }
+
+    @Test
+    public void calculations_size_subTreeSize(){
+        BinaryTree testTree = new BinaryTree();
+        testTree.buildTree();
+        Calculations calc = new Calculations();
+        Calculations.setPtrRoot(testTree.root);
+
+        double result = calc.averageValue(testTree.root.right.right);
+
+        Assert.assertEquals(3.75,result,0.01);
     }
 }

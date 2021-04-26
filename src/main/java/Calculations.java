@@ -25,7 +25,9 @@ public class Calculations {
         return 1 + size( node.left ) + size( node.right );
     }
 
-    public double averageValue(){
-        return subtreeSum(ptrRoot)/size(ptrRoot);
+    public double averageValue(Node node){
+        return subtreeSum(node)/size(node);
     }
+
+
 }

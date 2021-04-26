@@ -11,7 +11,7 @@ class Main {
                 calculations.subtreeSum(tree.root));
 
         System.out.println("count = " +
-                calculations.averageValue());
+                calculations.averageValue(tree.root.left));
 
     }
 }
